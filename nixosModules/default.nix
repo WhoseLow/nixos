@@ -2,5 +2,6 @@
   imports = [
     ./nvidia
     ./hyprland
+    ./pipewire
   ];
 }

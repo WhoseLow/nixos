@@ -20,6 +20,7 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+
     networking = {
       hostName = "nixos"; # Define your hostname
       # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant
@@ -31,6 +32,7 @@
       # Enable networking
       networkmanager.enable = true;
     };
+
     # Enable flakes
     nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -61,6 +63,7 @@
     modules = {
       nvidia.enable = true;
       hyprland.enable = true;
+      pipewire.enable = true;
     };
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -85,23 +88,10 @@
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
-    # Pipewire
-    security.rtkit.enable = true;
-    services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-    };
-
-    # List packages installed in system profile. To search, run:
-    # $ nix search wget
     environment.systemPackages = with pkgs; [
-      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      vim
       wget
       git
-      wireplumber
       alacritty
       nh
       nixfmt-rfc-style
