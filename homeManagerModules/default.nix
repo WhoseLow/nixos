@@ -1,5 +1,6 @@
 {...}: {
   imports = [
     ./hyprland
+    ./alacritty.nix
   ];
 }

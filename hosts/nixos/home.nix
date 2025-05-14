@@ -19,6 +19,7 @@
 
     modules = {
       hyprland.enable = true;
+      alacritty.enable = true;
     };
 
     home = {

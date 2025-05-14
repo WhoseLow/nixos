@@ -73,7 +73,7 @@
       fonts = {
         monospace = {
           package = pkgs.nerd-fonts.roboto-mono;
-          name = "RobotoMono Nerd";
+          name = "RobotoMono Nerd Font";
         };
       };
     };
@@ -99,7 +99,6 @@
       vim
       wget
       git
-      alacritty
       nh
       nixfmt-rfc-style
       nixd
