@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
     ./../../nixosModules
@@ -67,6 +66,18 @@
 
     programs.steam.enable = true;
 
+    stylix = {
+      enable = true;
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+      image = ./../../wallpaper.jpg;
+      fonts = {
+        monospace = {
+          package = pkgs.nerd-fonts.roboto-mono;
+          name = "RobotoMono Nerd";
+        };
+      };
+    };
+
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.whoselow = {
       isNormalUser = true;
@@ -80,11 +91,6 @@
         vesktop
       ];
     };
-
-    # Fonts
-    fonts.packages = with pkgs; [
-      nerd-fonts.roboto-mono
-    ];
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
