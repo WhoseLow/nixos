@@ -1,6 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
   pkgs,
@@ -20,6 +17,8 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+
+    home-manager.backupFileExtension = "backup";
 
     networking = {
       hostName = "nixos"; # Define your hostname
@@ -66,6 +65,8 @@
       pipewire.enable = true;
     };
 
+    programs.steam.enable = true;
+
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.whoselow = {
       isNormalUser = true;
@@ -102,7 +103,7 @@
     nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
     environment.sessionVariables = {
-      FLAKE = "/home/whoselow/.config/nixos";
+      NH_FLAKE = "/home/whoselow/.config/nixos";
     };
 
     home-manager = {

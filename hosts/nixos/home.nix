@@ -4,29 +4,39 @@
   outputs,
   ...
 }: {
-  #imports = [outputs.homeManagerModules.default];
+  # imports = [outputs.homeManagerModules.default];
 
-  # Git credentials
-  programs.git = {
-    userName = "WhoseLow";
-    userEmail = "whose.low@protonmail.com";
-  };
+  imports = [
+    ./../../homeManagerModules
+  ];
 
-  home = {
-    username = "whoselow";
-    homeDirectory = "/home/whoselow";
-    stateVersion = "24.11";
-
-    packages = [
-    ];
-
-    file = {
+  config = {
+    # Git credentials
+    programs.git = {
+      userName = "WhoseLow";
+      userEmail = "whose.low@protonmail.com";
     };
 
-    sessionVariables = {
+    modules = {
+      hyprland.enable = true;
     };
-  };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+    home = {
+      username = "whoselow";
+      homeDirectory = "/home/whoselow";
+      stateVersion = "24.11";
+
+      packages = [
+      ];
+
+      file = {
+      };
+
+      sessionVariables = {
+      };
+    };
+
+    # Let Home Manager install and manage itself.
+    programs.home-manager.enable = true;
+  };
 }
