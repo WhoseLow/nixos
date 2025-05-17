@@ -13,6 +13,7 @@
   config = {
     # Git credentials
     programs.git = {
+      enable = true;
       userName = "WhoseLow";
       userEmail = "whose.low@protonmail.com";
     };

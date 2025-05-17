@@ -89,6 +89,7 @@
       packages = with pkgs; [
         neovim
         neofetch
+        tealdeer
 
         # World of Warcraft wine deps
         (wineWowPackages.full.override {

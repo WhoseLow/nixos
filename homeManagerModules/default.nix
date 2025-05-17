@@ -4,5 +4,6 @@
     ./alacritty.nix
     ./waybar
     ./bundles
+    ./zsh
   ];
 }
