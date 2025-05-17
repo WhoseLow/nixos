@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./monitors.nix
   ];
   options.modules.hyprland = {
     enable = lib.mkEnableOption "Enable hyprland";
@@ -18,13 +19,10 @@
         exec-once = [
           "waybar"
         ];
-        monitor = [
-		"DP-4, highrr, 0x0, 1"
-		"DP-3, highrr, auto, 1, transform, 1"
-
-          #"DP-4, highrr, 0x0, 1"
-          #"DP-6, highrr, auto, 1, transform, 1"
-        ];
+        #monitor = [
+        # imports values from config.modules.hyprland.monitors
+        # see host/*/home.nix for example
+        #];
 
         "$terminal" = "alacritty";
         "$fileManager" = "thunar";

@@ -108,8 +108,6 @@
       wget
       git
       nh
-      nixfmt-rfc-style
-      nixd
       htop
     ];
 

@@ -18,6 +18,12 @@
       userEmail = "whose.low@protonmail.com";
     };
 
+    # Passes directly to hyprland monitor, use hyprland syntax
+    modules.hyprland.monitors = [
+      "DP-3, highrr, 0x0, 1"
+      "DP-4, highrr, auto, 1, transform, 1"
+    ];
+
     bundles = {
       desktop.enable = true;
       gaming.enable = true;
