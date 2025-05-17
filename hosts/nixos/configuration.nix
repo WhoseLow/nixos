@@ -89,6 +89,15 @@
       packages = with pkgs; [
         neovim
         neofetch
+
+        tealdeer
+
+        # World of Warcraft wine deps
+        (wineWowPackages.full.override {
+          wineRelease = "staging";
+          mingwSupport = true;
+        })
+        winetricks
       ];
     };
 
@@ -100,12 +109,7 @@
       wget
       git
       nh
-      nixfmt-rfc-style
-      nixd
       htop
-      wineWowPackages.stable
-      wineWowPackages.waylandFull
-      winetricks
     ];
 
     nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
