@@ -10,14 +10,20 @@
     enable = lib.mkEnableOption "Enable hyprland";
   };
   config = lib.mkIf config.modules.hyprland.enable {
-    # modules.waybar.enable = lib.mkDefault true;
+    modules.waybar.enable = lib.mkDefault true;
     wayland.windowManager.hyprland = {
       enable = true;
 
       settings = {
+        exec-once = [
+          "waybar"
+        ];
         monitor = [
-          "DP-4, highrr, 0x0, 1"
-          "DP-6, highrr, auto, 1, transform, 1"
+		"DP-4, highrr, 0x0, 1"
+		"DP-3, highrr, auto, 1, transform, 1"
+
+          #"DP-4, highrr, 0x0, 1"
+          #"DP-6, highrr, auto, 1, transform, 1"
         ];
 
         "$terminal" = "alacritty";
@@ -25,7 +31,7 @@
         "$menu" = "wofi --show drun";
 
         general = {
-          "gaps_in" = "5";
+          gaps_in = 5;
           gaps_out = 20;
 
           border_size = 2;
@@ -60,33 +66,22 @@
           };
         };
         animations = {
-          enabled = "yes, please :)";
+          enabled = true;
 
           bezier = [
-            "easeOutQuint,0.23,1,0.32,1"
-            "easeInOutCubic,0.65,0.05,0.36,1"
-            "linear,0,0,1,1"
-            "almostLinear,0.5,0.5,0.75,1.0"
-            "quick,0.15,0,0.1,1"
+            "overshot, 0.05, 0.9, 0.1, 1.05"
+            "smoothOut, 0.36, 0, 0.66, -0.56"
+            "smoothIn, 0.25, 1, 0.5, 1"
           ];
 
           animation = [
-            "global, 1, 10, default"
-            "border, 1, 5.39, easeOutQuint"
-            "windows, 1, 4.79, easeOutQuint"
-            "windowsIn, 1, 4.1, easeOutQuint, popin 87%"
-            "windowsOut, 1, 1.49, linear, popin 87%"
-            "fadeIn, 1, 1.73, almostLinear"
-            "fadeOut, 1, 1.46, almostLinear"
-            "fade, 1, 3.03, quick"
-            "layers, 1, 3.81, easeOutQuint"
-            "layersIn, 1, 4, easeOutQuint, fade"
-            "layersOut, 1, 1.5, linear, fade"
-            "fadeLayersIn, 1, 1.79, almostLinear"
-            "fadeLayersOut, 1, 1.39, almostLinear"
-            "workspaces, 1, 1.94, almostLinear, fade"
-            "workspacesIn, 1, 1.21, almostLinear, fade"
-            "workspacesOut, 1, 1.94, almostLinear, fade"
+            "windows, 1, 5, overshot, slide"
+            "windowsOut, 1, 4, smoothOut, slide"
+            "windowsMove, 1, 4, default"
+            "border, 1, 10, default"
+            "fade, 1, 10, default"
+            "fadeDim, 1, 10, smoothIn"
+            "workspaces, 1, 6, default"
           ];
         };
         dwindle = {
@@ -116,10 +111,12 @@
           "$mod, X, exec, $terminal"
           "$mod, Q, killactive"
           "$mod, E, exec, $fileManager"
+          "$mod, B, exec, $browser"
           "$mod, V, togglefloating"
           "$mod, R, exec, $menu"
           "$mod, P, pseudo, # dwindle"
           "$mod, J, togglesplit, # dwindle"
+          "$mod, F, fullscreen"
 
           # Switch workspaces
           "$mod, 1, workspace, 1"
@@ -158,6 +155,14 @@
           "suppressevent maximize, class:.*"
           "nofocus,class:^$,title:^$xwayland:1,floating:1,fullscreen:0,pinned:0"
         ];
+
+        binds = {
+          workspace_back_and_forth = 1;
+        };
+
+        cursor = {
+          no_hardware_cursors = true;
+        };
       };
     };
 

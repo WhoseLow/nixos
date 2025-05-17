@@ -18,13 +18,23 @@
     stylix,
     ...
   } @ inputs: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/nixos/configuration.nix
-        home-manager.nixosModules.default
-        stylix.nixosModules.stylix
-      ];
+    nixosConfigurations = {
+      nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/nixos/configuration.nix
+          home-manager.nixosModules.default
+          stylix.nixosModules.stylix
+        ];
+      };
+      temp = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/temp/configuration.nix
+          home-manager.nixosModules.default
+          stylix.nixosModules.stylix
+        ];
+      };
     };
   };
 }
