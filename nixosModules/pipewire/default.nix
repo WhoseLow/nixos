@@ -12,6 +12,7 @@ with lib; {
   config = mkIf config.modules.pipewire.enable {
     environment.systemPackages = with pkgs; [
       wireplumber
+      qpwgraph
     ];
     security.rtkit.enable = true;
     services.pipewire = {

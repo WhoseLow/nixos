@@ -5,5 +5,6 @@
     ./waybar
     ./bundles
     ./zsh
+    ./obs-studio
   ];
 }

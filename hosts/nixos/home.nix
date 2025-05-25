@@ -23,8 +23,13 @@
     ];
 
     bundles = {
+      cli_utils.enable = true;
       desktop.enable = true;
       gaming.enable = true;
+    };
+
+    modules = {
+      obs-studio.enable = true;
     };
 
     home = {
@@ -33,7 +38,9 @@
       stateVersion = "24.11";
 
       packages = with pkgs; [
-        obs-studio
+        prismlauncher
+        appimage-run
+	wowup-cf
       ];
 
       file = {

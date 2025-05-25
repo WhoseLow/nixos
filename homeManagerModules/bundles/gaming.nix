@@ -16,7 +16,13 @@
     programs.mangohud.enable = true;
 
     home.packages = with pkgs; [
-      lutris
+      (pkgs.lutris.override {
+        extraPkgs = pkgs: [
+          wineWowPackages.stagingFull
+          wineWowPackages.waylandFull
+          winetricks
+        ];
+      })
       steam
       steam-run
       protonup-ng

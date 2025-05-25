@@ -20,8 +20,13 @@
       floorp
       obsidian
       vesktop
+      spotify
+      gimp
 
       mpv
+      popcorntime
+      openvpn
+      vopono
 
       lm_sensors
       onlyoffice-bin

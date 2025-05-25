@@ -61,6 +61,7 @@
     modules = {
       nvidia.enable = true;
       hyprland.enable = true;
+      zsh.enable = true;
       pipewire.enable = true;
       virt-manager.enable = true;
     };
@@ -68,6 +69,11 @@
     hardware.cpu.amd.updateMicrocode = true;
 
     programs.steam.enable = true;
+    services.zerotierone = {
+      enable = true;
+      joinNetworks = ["fada62b0156e96f9"];
+      port = 9994;
+    };
 
     stylix = {
       enable = true;
@@ -87,16 +93,8 @@
       description = "WhoseLow";
       extraGroups = ["networkmanager" "wheel"];
       packages = with pkgs; [
-        neovim
-        neofetch
-
-        tealdeer
-
-        # World of Warcraft wine deps
-        (wineWowPackages.full.override {
-          wineRelease = "staging";
-          mingwSupport = true;
-        })
+        wineWowPackages.stagingFull
+        wineWowPackages.waylandFull
         winetricks
       ];
     };
@@ -105,11 +103,8 @@
     nixpkgs.config.allowUnfree = true;
 
     environment.systemPackages = with pkgs; [
-      vim
-      wget
       git
-      nh
-      htop
+      vim
     ];
 
     nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];

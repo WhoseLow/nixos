@@ -18,6 +18,8 @@
       settings = {
         exec-once = [
           "waybar"
+	  "nm-applet"
+          "dunst" #TODO migrate to its own modules
         ];
         #monitor = [
         # imports values from config.modules.hyprland.monitors
@@ -115,6 +117,8 @@
           "$mod, P, pseudo, # dwindle"
           "$mod, J, togglesplit, # dwindle"
           "$mod, F, fullscreen"
+          # Screenshot
+          "SUPER SHIFT, S, exec, grimblast --notify copysave area"
 
           # Switch workspaces
           "$mod, 1, workspace, 1"
@@ -165,8 +169,9 @@
     };
 
     home.packages = with pkgs; [
-      grim
+      grimblast
       wl-clipboard
+      dunst
       swww
       networkmanagerapplet
       wofi
