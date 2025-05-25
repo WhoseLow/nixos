@@ -18,7 +18,7 @@
       settings = {
         exec-once = [
           "waybar"
-	  "nm-applet"
+          "nm-applet"
           "dunst" #TODO migrate to its own modules
         ];
         #monitor = [
@@ -28,16 +28,14 @@
 
         "$terminal" = "alacritty";
         "$fileManager" = "thunar";
-        "$menu" = "wofi --show drun";
+        "$menu" = "rofi -show drun";
+        "$browser" = "floorp";
 
         general = {
           gaps_in = 5;
           gaps_out = 20;
 
           border_size = 2;
-
-          #"col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-          #"col.inactive_border" = lib.mkDefault "rgba(595959aa)";
 
           resize_on_border = false;
 
@@ -174,7 +172,7 @@
       dunst
       swww
       networkmanagerapplet
-      wofi
+      rofi-wayland
       waybar
       xfce.thunar
     ];

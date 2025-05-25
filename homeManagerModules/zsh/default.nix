@@ -21,9 +21,13 @@
       history.size = 10000;
       shellAliases = {
         ":q" = "exit";
+        "ls" = "eza --icons -a --group-directories-first";
+        "tree" = "eza --color=auto --icons --tree";
+        "grep" = "grep --color=auto";
       };
     };
-    home.packages = [
+    home.packages = with pkgs; [
+      eza
     ];
   };
 }

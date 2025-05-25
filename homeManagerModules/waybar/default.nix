@@ -25,6 +25,15 @@
             "clock"
           ];
 
+          "hyprland/workspaces" = {
+            format = "{icon} {windows}";
+          };
+
+          "hyprland/window" = {
+            format = "{title}";
+            icon = true;
+          };
+
           tray = {
             icon-size = 13;
             tooltip = false;
