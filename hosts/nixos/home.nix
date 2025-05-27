@@ -40,7 +40,7 @@
       packages = with pkgs; [
         prismlauncher
         appimage-run
-	wowup-cf
+        wowup-cf
       ];
 
       file = {

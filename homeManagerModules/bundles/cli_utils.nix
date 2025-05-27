@@ -11,7 +11,6 @@
     home.packages = with pkgs; [
       htop
       unzip
-      neovim
       git
       wget
       nh
