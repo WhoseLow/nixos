@@ -30,16 +30,16 @@
           home-manager.nixosModules.default
           stylix.nixosModules.stylix
 
-          # NVF module
+          # TODO: move to separate module
           ({pkgs, ...}: {
             environment.systemPackages = [
-              self.packages.${pkgs.stdenv.system}.my-neovim
+              self.packages.${pkgs.stdenv.system}.nvim
             ];
           })
         ];
       };
     };
-    packages.x86_64-linux.my-neovim =
+    packages.x86_64-linux.nvim =
       (nvf.lib.neovimConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
