@@ -23,10 +23,10 @@
     ...
   } @ inputs: {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      "desktop" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./hosts/nixos/configuration.nix
+          ./hosts/desktop/configuration.nix
           home-manager.nixosModules.default
           stylix.nixosModules.stylix
 
@@ -43,7 +43,7 @@
       (nvf.lib.neovimConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
-          ./nvf_module.nix
+          ./packages/nvim
         ];
       }).neovim;
   };

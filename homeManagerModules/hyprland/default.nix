@@ -21,18 +21,14 @@
           "nm-applet"
           "dunst" #TODO migrate to its own modules
         ];
-        #monitor = [
-        # imports values from config.modules.hyprland.monitors
-        # see host/*/home.nix for example
-        #];
 
         "$terminal" = "alacritty";
-        "$fileManager" = "thunar";
+        "$fileManager" = "ranger";
         "$menu" = "rofi -show drun";
         "$browser" = "floorp";
 
         general = {
-          gaps_in = 5;
+          gaps_in = 3;
           gaps_out = 20;
 
           border_size = 2;
