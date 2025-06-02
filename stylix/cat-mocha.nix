@@ -13,8 +13,8 @@
       };
     };
     opacity = {
-      applications = 0.7;
-      terminal = 0.7;
+      applications = 0.75;
+      terminal = 0.75;
     };
   };
 }

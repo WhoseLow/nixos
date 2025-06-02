@@ -22,6 +22,7 @@
       vesktop
       spotify
       gimp
+      xfce.thunar
 
       mpv
       popcorntime

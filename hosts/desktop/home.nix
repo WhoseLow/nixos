@@ -28,6 +28,7 @@
 
     modules = {
       obs-studio.enable = true;
+      lf.enable = true;
     };
 
     home = {

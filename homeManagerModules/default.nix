@@ -6,5 +6,6 @@
     ./bundles
     ./zsh
     ./obs-studio
+    ./lf
   ];
 }

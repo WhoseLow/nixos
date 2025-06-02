@@ -16,7 +16,6 @@
       nh
       tealdeer
       neofetch
-      ranger
     ];
   };
 }

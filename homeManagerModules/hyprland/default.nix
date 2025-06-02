@@ -23,13 +23,13 @@
         ];
 
         "$terminal" = "alacritty";
-        "$fileManager" = "ranger";
-        "$menu" = "rofi -show drun";
+        "$fileManager" = "thunar";
+        "$menu" = "wofi --show drun";
         "$browser" = "floorp";
 
         general = {
           gaps_in = 3;
-          gaps_out = 20;
+          gaps_out = 10;
 
           border_size = 2;
 
@@ -168,9 +168,8 @@
       dunst
       swww
       networkmanagerapplet
-      rofi-wayland
+      wofi
       waybar
-      xfce.thunar
     ];
   };
 }
