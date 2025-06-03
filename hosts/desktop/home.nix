@@ -32,6 +32,8 @@
       lf.enable = true;
     };
 
+    services.arrpc.enable = true;
+
     home = {
       username = "whoselow";
       homeDirectory = "/home/whoselow";
@@ -41,6 +43,14 @@
         prismlauncher
         appimage-run
         wowup-cf
+        popcorntime
+        # TODO: move these to bundle
+        obsidian
+        vesktop
+        spotify
+        gimp
+        openvpn
+        vopono
       ];
 
       file = {

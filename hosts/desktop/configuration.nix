@@ -74,6 +74,7 @@
     };
 
     programs.steam.enable = true;
+
     services = {
       zerotierone.enable = true;
 

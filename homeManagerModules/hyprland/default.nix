@@ -12,8 +12,11 @@
   };
   config = lib.mkIf config.modules.hyprland.enable {
     modules.waybar.enable = lib.mkDefault true;
+
+    services.hyprpolkitagent.enable = true;
     wayland.windowManager.hyprland = {
       enable = true;
+      systemd.enable = false;
 
       settings = {
         exec-once = [
@@ -24,8 +27,11 @@
 
         "$terminal" = "alacritty";
         "$fileManager" = "thunar";
-        "$menu" = "wofi --show drun";
         "$browser" = "floorp";
+
+        "$menu" = ''
+          uwsm app -- "$(wofi --show drun --define=drun-print_desktop_file=true | sed -E "s/(\.desktop) /\1:/")"
+        '';
 
         general = {
           gaps_in = 3;

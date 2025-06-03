@@ -14,22 +14,11 @@
       zsh.enable = lib.mkDefault true;
     };
     home.packages = with pkgs; [
-      polkit
-      polkit_gnome
-
       floorp
-      obsidian
-      vesktop
-      spotify
-      gimp
       xfce.thunar
 
       feh
       mpv
-      popcorntime
-      openvpn
-      vopono
-
       lm_sensors
       onlyoffice-bin
       easyeffects
