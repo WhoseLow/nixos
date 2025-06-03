@@ -18,9 +18,6 @@
       efi.canTouchEfiVariables = true;
     };
 
-    #Hardware
-    hardware.cpu.amd.updateMicrocode = true;
-
     home-manager.backupFileExtension = "backup";
 
     networking = {
@@ -77,7 +74,15 @@
     };
 
     programs.steam.enable = true;
-    services.zerotierone.enable = true;
+    services = {
+      zerotierone.enable = true;
+
+      btrfs.autoScrub = {
+        enable = true;
+        interval = "weekly";
+        fileSystems = ["/"];
+      };
+    };
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.whoselow = {
@@ -93,6 +98,7 @@
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
+    hardware.enableRedistributableFirmware = true;
 
     environment.systemPackages = with pkgs; [
       git

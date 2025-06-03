@@ -24,6 +24,7 @@
       gimp
       xfce.thunar
 
+      feh
       mpv
       popcorntime
       openvpn
