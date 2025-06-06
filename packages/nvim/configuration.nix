@@ -1,9 +1,10 @@
 {
   pkgs,
+  config,
   lib,
   ...
 }: {
-  vim = {
+  config.vim = {
     lsp = {
       enable = true;
       formatOnSave = true;

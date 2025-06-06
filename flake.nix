@@ -46,5 +46,16 @@
           ./packages/nvim
         ];
       }).neovim;
+
+    packages.x86_64-linux.nvim-js =
+      (nvf.lib.neovimConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [
+          ./packages/nvim
+          {
+            config.vim.languages.ts.enable = true;
+          }
+        ];
+      }).neovim;
   };
 }
