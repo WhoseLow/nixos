@@ -52,9 +52,9 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./packages/nvim
-          {
+          ({...}: {
             config.vim.languages.ts.enable = true;
-          }
+          })
         ];
       }).neovim;
   };
