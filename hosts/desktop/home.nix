@@ -30,9 +30,10 @@
     modules = {
       obs-studio.enable = true;
       lf.enable = true;
+      vscode.enable = true;
+      obsidian.enable = true;
+      discord.enable = true;
     };
-
-    services.arrpc.enable = true;
 
     home = {
       username = "whoselow";
@@ -45,9 +46,7 @@
         wowup-cf
         popcorntime
         # TODO: move these to bundle
-        obsidian
-        vesktop
-        spotify
+        spotify #TODO: search for alternative player
         gimp
         openvpn
         vopono

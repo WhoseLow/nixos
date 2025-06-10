@@ -7,5 +7,8 @@
     ./zsh
     ./obs-studio
     ./lf
+    ./vscode.nix
+    ./discord.nix
+    ./obsidian.nix
   ];
 }

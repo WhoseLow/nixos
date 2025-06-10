@@ -94,6 +94,7 @@
         wineWowPackages.stagingFull
         wineWowPackages.waylandFull
         winetricks
+        mpv
       ];
     };
 
