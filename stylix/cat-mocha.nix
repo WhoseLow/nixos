@@ -9,7 +9,7 @@
     image = ./wallpapers/wallpaper_cat.jpg;
 
     cursor = {
-      size = 24;
+      size = 30;
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
     };

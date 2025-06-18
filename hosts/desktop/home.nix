@@ -35,6 +35,19 @@
       discord.enable = true;
     };
 
+    # TODO: move this
+    stylix = {
+      targets = {
+        vesktop.enable = false;
+      };
+      iconTheme = {
+        enable = true;
+        package = pkgs.candy-icons;
+        dark = "candy-icons";
+        light = "candy-icons";
+      };
+    };
+
     home = {
       username = "whoselow";
       homeDirectory = "/home/whoselow";
@@ -50,6 +63,7 @@
         gimp
         openvpn
         vopono
+        android-studio
       ];
 
       file = {

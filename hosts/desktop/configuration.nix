@@ -71,9 +71,12 @@
       zsh.enable = true;
       pipewire.enable = true;
       virt-manager.enable = true;
+      thunar.enable = true;
     };
 
     programs.steam.enable = true;
+
+    programs.adb.enable = true;
 
     services = {
       zerotierone.enable = true;
@@ -89,12 +92,11 @@
     users.users.whoselow = {
       isNormalUser = true;
       description = "WhoseLow";
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = ["networkmanager" "wheel" "adbusers"];
       packages = with pkgs; [
         wineWowPackages.stagingFull
         wineWowPackages.waylandFull
         winetricks
-        mpv
       ];
     };
 

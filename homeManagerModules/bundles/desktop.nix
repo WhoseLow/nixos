@@ -16,8 +16,6 @@
 
     home.packages = with pkgs; [
       floorp
-      xfce.thunar
-
       feh
       lm_sensors
       onlyoffice-bin
