@@ -63,7 +63,6 @@
         gimp
         openvpn
         vopono
-        android-studio
       ];
 
       file = {

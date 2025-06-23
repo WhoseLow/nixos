@@ -29,7 +29,9 @@
       proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
       # Open ports in the firewall.
-      # networking.firewall.allowedTCPPorts = [ ... ];
+      firewall.allowedTCPPorts = [
+        25565
+      ];
       # networking.firewall.allowedUDPPorts = [ ... ];
       # Or disable the firewall altogether.
       # networking.firewall.enable = false;
@@ -80,7 +82,6 @@
 
     services = {
       zerotierone.enable = true;
-
       btrfs.autoScrub = {
         enable = true;
         interval = "weekly";
@@ -92,7 +93,7 @@
     users.users.whoselow = {
       isNormalUser = true;
       description = "WhoseLow";
-      extraGroups = ["networkmanager" "wheel" "adbusers"];
+      extraGroups = ["networkmanager" "wheel" "kvm" "adbusers"];
       packages = with pkgs; [
         wineWowPackages.stagingFull
         wineWowPackages.waylandFull
