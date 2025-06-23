@@ -17,8 +17,8 @@
     };
 
     modules.hyprland.monitors = [
-      "DP-4, highrr, 0x0, 1"
-      "DP-6, highrr, auto, 1, transform, 1"
+      "DP-1, highrr, 0x0, 1"
+      "DP-3, highrr, auto, 1, transform, 1"
     ];
 
     bundles = {
