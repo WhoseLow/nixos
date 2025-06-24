@@ -14,6 +14,11 @@
         arRPC = true;
         hardwareAcceleration = lib.mkDefault true;
       };
+      vencord.settings = {
+        plugins = {
+          VolumeBooster.enabled = true;
+        };
+      };
     };
 
     #TODO: add option to enable/disable, along with associated settings
