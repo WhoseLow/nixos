@@ -16,10 +16,13 @@
       userEmail = "whose.low@protonmail.com";
     };
 
-    modules.hyprland.monitors = [
-      "DP-4, highrr, 0x0, 1"
-      "DP-6, highrr, auto, 1, transform, 1"
-    ];
+    modules.hyprland = {
+      monitors = [
+        "DP-4, highrr, 0x0, 1"
+        "DP-6, highrr, auto, 1, transform, 1"
+      ];
+      # hyprsplit.enable = false;
+    };
 
     bundles = {
       cli_utils.enable = true;
@@ -64,6 +67,7 @@
         openvpn
         vopono
         android-studio
+        r2modman
       ];
 
       file = {
