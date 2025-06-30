@@ -6,17 +6,25 @@
 }: {
   imports = [
     ./monitors.nix
+    ./keybinds.nix
   ];
   options.modules.hyprland = {
     enable = lib.mkEnableOption "Enable hyprland";
+    hyprsplit.enable = lib.mkEnableOption "Split workspaces plugin";
   };
   config = lib.mkIf config.modules.hyprland.enable {
     modules.waybar.enable = lib.mkDefault true;
+    modules.hyprland.hyprsplit.enable = lib.mkDefault true;
 
     services.hyprpolkitagent.enable = true;
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = false;
+
+      plugins = [pkgs.hyprlandPlugins.hyprsplit];
+      # ++ lib.optional
+      # config.modules.hyprland.hyprsplit.enable
+      # [pkgs.hyprlandPlugins.hyprsplit];
 
       settings = {
         exec-once = [
@@ -24,14 +32,6 @@
           "nm-applet"
           "dunst" #TODO migrate to its own modules
         ];
-
-        "$terminal" = "alacritty";
-        "$fileManager" = "thunar";
-        "$browser" = "floorp";
-
-        "$menu" = ''
-          uwsm app -- "$(wofi --show drun --define=drun-print_desktop_file=true | sed -E "s/(\.desktop) /\1:/")"
-        '';
 
         general = {
           gaps_in = 3;
@@ -105,53 +105,6 @@
         gestures = {
           workspace_swipe = false;
         };
-        "$mod" = "SUPER";
-
-        bind = [
-          "$mod, X, exec, $terminal"
-          "$mod, Q, killactive"
-          "$mod, E, exec, $fileManager"
-          "$mod, B, exec, $browser"
-          "$mod, V, togglefloating"
-          "$mod, R, exec, $menu"
-          "$mod, P, pseudo, # dwindle"
-          "$mod, J, togglesplit, # dwindle"
-          "$mod, F, fullscreen"
-          # Screenshot
-          "SUPER SHIFT, S, exec, grimblast --notify copysave area"
-
-          # Switch workspaces
-          "$mod, 1, workspace, 1"
-          "$mod, 2, workspace, 2"
-          "$mod, 3, workspace, 3"
-          "$mod, 4, workspace, 4"
-          "$mod, 5, workspace, 5"
-          "$mod, 6, workspace, 6"
-          "$mod, 7, workspace, 7"
-          "$mod, 8, workspace, 8"
-          "$mod, 9, workspace, 9"
-          "$mod, 0, workspace, 10"
-
-          # Move active window to workspace
-          "$mod SHIFT, 1, movetoworkspace, 1"
-          "$mod SHIFT, 2, movetoworkspace, 2"
-          "$mod SHIFT, 3, movetoworkspace, 3"
-          "$mod SHIFT, 4, movetoworkspace, 4"
-          "$mod SHIFT, 5, movetoworkspace, 5"
-          "$mod SHIFT, 6, movetoworkspace, 6"
-          "$mod SHIFT, 7, movetoworkspace, 7"
-          "$mod SHIFT, 8, movetoworkspace, 8"
-          "$mod SHIFT, 9, movetoworkspace, 9"
-          "$mod SHIFT, 0, movetoworkspace, 10"
-
-          "$mod, mouse_down, workspace, e+1"
-          "$mod, mouse_up, workspace, e-1"
-        ];
-
-        bindm = [
-          "$mod, mouse:272, movewindow"
-          "$mod, mouse:273, resizewindow"
-        ];
 
         windowrule = [
           "suppressevent maximize, class:.*"
@@ -176,6 +129,11 @@
       networkmanagerapplet
       wofi
       waybar
+      hyprlandPlugins.hyprsplit
     ];
+    #++ lib.optional
+    #config.modules.hyprland.hyprsplit.enable [
+    #  pkgs.hyprlandPlugins.hyprsplit
+    #];
   };
 }

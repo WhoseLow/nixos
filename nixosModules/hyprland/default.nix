@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 with lib; {
@@ -13,6 +14,7 @@ with lib; {
     # UWSM setup, may move to its own module in the future
     programs.uwsm = {
       enable = true;
+      # package = inputs.hyprland.packages."${pkgs.system}".hyprland;
       waylandCompositors = {
         hyprland = {
           prettyName = "Hyprland";

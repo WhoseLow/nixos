@@ -12,6 +12,12 @@
     stylix.url = "github:danth/stylix";
 
     nvf.url = "github:notashelf/nvf";
+
+    #hyprland.url = "github:hyprwm/Hyprland";
+    #hyprland-plugins = {
+    #  url = "github:hyprwm/hyprland-plugins";
+    #  inputs.hyprland.follows = "hyprland";
+    #};
   };
 
   outputs = {
