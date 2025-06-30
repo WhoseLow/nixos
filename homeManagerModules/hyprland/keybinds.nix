@@ -64,15 +64,15 @@
         ++ moveworkspaces;
 
       binde = [
-        "$mainMod SHIFT, h, moveactive, -20 0"
-        "$mainMod SHIFT, l, moveactive, 20 0"
-        "$mainMod SHIFT, k, moveactive, 0 -20"
-        "$mainMod SHIFT, j, moveactive, 0 20"
+        "$mod SHIFT, h, moveactive, -20 0"
+        "$mod SHIFT, l, moveactive, 20 0"
+        "$mod SHIFT, k, moveactive, 0 -20"
+        "$mod SHIFT, j, moveactive, 0 20"
 
-        "$mainMod CTRL, l, resizeactive, 30 0"
-        "$mainMod CTRL, h, resizeactive, -30 0"
-        "$mainMod CTRL, k, resizeactive, 0 -10"
-        "$mainMod CTRL, j, resizeactive, 0 10"
+        "$mod CTRL, l, resizeactive, 30 0"
+        "$mod CTRL, h, resizeactive, -30 0"
+        "$mod CTRL, k, resizeactive, 0 -10"
+        "$mod CTRL, j, resizeactive, 0 10"
       ];
 
       bindm = [
