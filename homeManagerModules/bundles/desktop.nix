@@ -12,10 +12,10 @@
       hyprland.enable = lib.mkDefault true;
       alacritty.enable = lib.mkDefault true;
       zsh.enable = lib.mkDefault true;
+      zen-browser.enable = lib.mkDefault true;
     };
 
     home.packages = with pkgs; [
-      floorp
       feh
       lm_sensors
       onlyoffice-bin

@@ -28,9 +28,11 @@
 
       settings = {
         exec-once = [
+          # TODO: create an autostart option which is referenced here
           "waybar"
           "nm-applet"
-          "dunst" #TODO migrate to its own modules
+          "dunst"
+          "easyeffects --gapplication-service"
         ];
 
         general = {

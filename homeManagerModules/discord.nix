@@ -13,8 +13,10 @@
       settings = {
         arRPC = true;
         hardwareAcceleration = lib.mkDefault true;
+        hardwareVideoAcceleration = lib.mkDefault true;
       };
       vencord.settings = {
+        transparent = true;
         plugins = {
           VolumeBooster.enabled = true;
         };

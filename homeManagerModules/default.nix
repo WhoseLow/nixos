@@ -10,5 +10,6 @@
     ./vscode.nix
     ./discord.nix
     ./obsidian.nix
+    ./zen-browser.nix
   ];
 }

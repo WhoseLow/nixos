@@ -10,7 +10,7 @@
       # TODO: set this up to import based on which programs are enabled
       "$terminal" = "alacritty";
       "$fileManager" = "thunar";
-      "$browser" = "floorp";
+      "$browser" = "zen";
       "$menu" = ''
         uwsm app -- "$(wofi --show drun --define=drun-print_desktop_file=true | sed -E "s/(\.desktop) /\1:/")"
       '';
