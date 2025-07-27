@@ -21,12 +21,12 @@
     home-manager.backupFileExtension = "backup";
 
     networking = {
-      hostName = "desktop"; # Define your hostname
+      hostName = "desktop";
       # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant
 
       # Configure network proxy if necessary
       # proxy.default = "http://user:password@proxy:port/";
-      proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+      # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
       # Open ports in the firewall.
       firewall = {
@@ -74,15 +74,12 @@
     modules = {
       nvidia.enable = true;
       hyprland.enable = true;
-      zsh.enable = true;
       pipewire.enable = true;
       virt-manager.enable = true;
       thunar.enable = true;
     };
 
     programs.steam.enable = true;
-
-    programs.adb.enable = true;
 
     services = {
       zerotierone.enable = true;
@@ -98,6 +95,7 @@
       isNormalUser = true;
       description = "WhoseLow";
       extraGroups = ["networkmanager" "wheel" "kvm" "adbusers"];
+      shell = pkgs.zsh;
       packages = with pkgs; [
         wineWowPackages.stagingFull
         wineWowPackages.waylandFull
@@ -106,6 +104,8 @@
       ];
     };
 
+    programs.zsh.enable = true;
+
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
     hardware.enableRedistributableFirmware = true;
@@ -113,7 +113,18 @@
     environment.systemPackages = with pkgs; [
       git
       neovim
+      cifs-utils
     ];
+
+    #Samba tesing
+    fileSystems."/mnt/share" = {
+      device = "192.168.0.193/mnt/shares/private";
+      fsType = "cifs";
+      options = let
+        # this line prevents hanging on network split
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+      in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
+    };
 
     home-manager = {
       extraSpecialArgs = {inherit inputs;};

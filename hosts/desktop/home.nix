@@ -62,11 +62,10 @@
         wowup-cf
         popcorntime
         # TODO: move these to bundle
-        spotify #TODO: search for alternative player
+        tidal-hifi
         gimp
         openvpn
         vopono
-        android-studio
         r2modman
       ];
 
