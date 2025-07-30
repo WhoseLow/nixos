@@ -17,7 +17,6 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
 
-      dotDir = ".config/zsh";
       history.size = 10000;
       shellAliases = {
         ":q" = "exit";

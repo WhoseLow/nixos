@@ -9,6 +9,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # hyprland.url = "github:hyprwm/Hyprland";
+    # hyprsplit = {
+    #   url = "github:shezdy/hyprsplit";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+
     stylix.url = "github:danth/stylix";
 
     nvf.url = "github:notashelf/nvf";

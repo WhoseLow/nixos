@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   pkgs,
   config,
@@ -11,6 +12,7 @@
   options.modules.hyprland = {
     enable = lib.mkEnableOption "Enable hyprland";
     hyprsplit.enable = lib.mkEnableOption "Split workspaces plugin";
+    # hdr.enable = lib.mkEnableOption "Enable Color Management";
   };
   config = lib.mkIf config.modules.hyprland.enable {
     modules.waybar.enable = lib.mkDefault true;
@@ -21,7 +23,9 @@
       enable = true;
       systemd.enable = false;
 
-      plugins = [pkgs.hyprlandPlugins.hyprsplit];
+      plugins = [
+        pkgs.hyprlandPlugins.hyprsplit
+      ];
       # ++ lib.optional
       # config.modules.hyprland.hyprsplit.enable
       # [pkgs.hyprlandPlugins.hyprsplit];
@@ -120,6 +124,7 @@
         cursor = {
           no_hardware_cursors = true;
         };
+        # experimental.xx_color_management_v4 = config.modules.hyprland.hdr.enable;
       };
     };
 

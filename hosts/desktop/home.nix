@@ -31,6 +31,10 @@
     };
 
     modules = {
+      hyprland = {
+        enable = true;
+        # hdr.enable = true;
+      };
       obs-studio.enable = true;
       lf.enable = true;
       vscode.enable = true;
@@ -67,6 +71,7 @@
         openvpn
         vopono
         r2modman
+        jellyfin-media-player
       ];
 
       file = {
